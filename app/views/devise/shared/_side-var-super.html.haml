@@ -1,0 +1,31 @@
+.side-var
+  %input#menuToggler.input-toggler{autofocus: "true", type: "checkbox", value: "1"}/
+  %label#menuTogglerLabel.menu-toggler{"aria-expanded": "false", "aria-label": "Navigation button", "aria-pressed": "false", for: "menuToggler", role: "button"}
+    %span.menu-toggler__line
+    %span.menu-toggler__line
+    %span.menu-toggler__line
+  %nav#sidebar.sidebar{"aria-hidden": "true", "aria-labelledby": "menuTogglerLabel", role: "navigation"}
+    %ul#menubar.menu{"aria-orientation": "vertical", role: "menubar"}
+      %li.menu__item
+        ユーザー情報
+        %h3.header__name
+          = current_user.name
+      %ul.header__lists
+      %li.list
+        = link_to new_group_path do
+          = fa_icon 'pencil-square-o', class: 'icon'
+      %li.list
+        = link_to edit_user_path(current_user) do
+          = fa_icon 'cog', class: 'icon'
+      %li.menu__item
+        %a.menu__link{href: "#"} Home
+      %li.menu__item
+        %a.menu__link{href: "#"} Blog
+      .groups
+        - current_user.groups.each do |group|
+          .group
+            = link_to group_messages_path(group) do
+              .group__name
+                = group.name
+              .group__message
+                = group.show_last_message

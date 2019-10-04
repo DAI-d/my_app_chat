@@ -1,0 +1,110 @@
+.chat-main{
+  width:calc(100vw);
+}
+
+.main-header{
+  height: 110px;
+  padding: 0 80px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #eee;
+  overflow: scroll;
+  box-sizing: border-box;
+  &__left-box{
+    &__current-group{
+      font-size: 20px;
+      color:#333333;
+      margin:5px 0;
+    }
+    &__menber-box{
+      display:flex;
+      height:65px;
+    }
+  }
+  &__right-box__edit-btn{
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    margin-top: 28px;
+    border: solid 1px #38AEF0;
+    position: absolute;
+    right: 40px;
+    color:#38AEF0;
+    cursor: pointer;
+    a{text-decoration: none;}
+      a:link{color:#38AEF0;}
+      a:visited{color:#38AEF0;}
+  }
+}
+
+.messages{
+  height: calc(100vh - 200px);
+  padding: 20px 0px;
+  background-color: skyblue;
+  // background: url("space2.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow: scroll;
+  box-sizing: border-box;
+}
+
+.message-box{
+  display: flex;
+  padding: 10px 10px;
+}
+
+.message__user-image{
+  background: white;
+  width:  68px;       /* ※縦横を同値に */
+  height: 68px;       /* ※縦横を同値に */
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+}
+
+.message-box__left__user-name{
+  width:68px;
+  color: #434a54;
+  font-size: 16px;
+  text-align: center;
+}
+
+.message-box__right{
+  display:flex;
+  align-items: flex-end;
+  margin-bottom:25px;
+}
+
+.message-box__right__message{
+  position: relative;
+  min-width: 50px;
+  max-width: 80%;
+  min-height: 68px;
+  padding: 25px 10px 25px 10px;
+  margin-left: 20px;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-radius: 20px;
+  color: #434a54;
+  font-size: 20px;
+}
+
+.message__content{
+  line-height:100%;
+}
+
+.message-box__right__date{
+  color: #4d1d1d;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+
+.message-box__right__message:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -25px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e0edff;
+}

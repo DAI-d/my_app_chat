@@ -1,0 +1,9 @@
+erb版
+<%= react_component("HelloWorld", { greeting: "Hello!" }) %>
+<%= react_component("HelloWorld") %>
+<%= react_component("DropDownMenu") %>
+
+haml版
+= react_component("HelloWorld", { greeting: "Hello!" })
+= react_component("HelloWorld")
+= react_component("DropDownMenu")

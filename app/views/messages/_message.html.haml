@@ -1,0 +1,14 @@
+.message-box
+  .message-box__left
+    .message-box__left__user-image
+      = image_tag message.user.image.url, class: 'message__user-image'
+    .message-box__left__user-name
+      = message.user.name
+  .message-box__right
+    .message-box__right__message
+      - if message.content.present?
+        .message__content
+          = message.content
+      = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+    .message-box__right__date
+      = message.created_at.strftime("%H:%M")

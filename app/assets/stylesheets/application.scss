@@ -1,0 +1,15 @@
+/*
+*= require dropzone/dropzone
+*/
+
+@import "./reset";
+@import "font-awesome";
+@import "config/colors";
+@import "config/font-size";
+// @import "modules/side-var";
+@import "modules/side-var-super";
+@import "modules/chat-main";
+@import "modules/form";
+@import "modules/user";
+@import "modules/group";
+//上から読み込まれるので、変数定義ファイルは変数呼び出しファイルの上にないとエラー
