@@ -4,16 +4,17 @@
 
 .main-header{
   height: 110px;
-  padding: 0 80px;
+  padding: 0 40px 0 80px;
   display: flex;
   justify-content: space-between;
-  border-bottom: solid 1px #eee;
+  align-items: center;
   overflow: scroll;
   box-sizing: border-box;
+  background: #000033;
   &__left-box{
     &__current-group{
       font-size: 20px;
-      color:#333333;
+      color:white;
       margin:5px 0;
     }
     &__menber-box{
@@ -22,26 +23,29 @@
     }
   }
   &__right-box__edit-btn{
-    height: 40px;
-    line-height: 40px;
-    padding: 0 20px;
-    margin-top: 28px;
-    border: solid 1px #38AEF0;
-    position: absolute;
-    right: 40px;
-    color:#38AEF0;
-    cursor: pointer;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
     a{text-decoration: none;}
-      a:link{color:#38AEF0;}
-      a:visited{color:#38AEF0;}
+      a:link{color: white;}
+      a:visited{color: white;}
+  }
+  &__right-box__edit-btn:active {
+    /*ボタンを押したとき*/
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
   }
 }
 
 .messages{
   height: calc(100vh - 200px);
   padding: 20px 0px;
-  background-color: skyblue;
-  // background: url("space2.jpg");
+  // background-color: skyblue;
+  background: url("line-back.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   overflow: scroll;
@@ -98,13 +102,14 @@
   margin-left: 10px;
 }
 
-
-.message-box__right__message:before {
+.message-box__right__message:before { //指定した要素の子要素として三角を付ける
   content: "";
   position: absolute;
   top: 50%;
-  left: -25px;
+  left: -25px; //-25
   margin-top: -15px;
-  border: 15px solid transparent;
-  border-right: 15px solid #e0edff;
+  border: 15px solid transparent; //transparentで透明
+  border-right: 15px solid #e0edff; //rightだけ白にして境界線で三角作る
+  width:0px;
+  height:0px;
 }

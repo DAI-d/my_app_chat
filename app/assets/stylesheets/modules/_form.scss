@@ -2,14 +2,14 @@
   height:90px;
   width:100%;
   padding:20px 40px;
-  background:#ddd;
+  background:#eeeeee;
   box-sizing:border-box;
   &__mask{
     position: relative;
     &__image{
       font-size: 1.3rem;
       position: absolute;
-      top: 10px;
+      top: 15px;
       right: 10px;
       cursor: pointer;
     }
@@ -21,15 +21,25 @@
     padding: 0 40px 0 10px;
     color: #434a54;
     border-style: none;
+    border-radius: 25px;
+    outline: none;
   }
   &__submit{
-    width: 100px;
-    height: 50px;
-    padding: 0 30px;
-    margin-left: 15px;
-    background-color: #38aef0;
-    color: white;
-    cursor: pointer;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 5px #627295;
+    outline: none;
+    border-radius: 25px;
+    margin-left: 10px;
+  }
+  &__submit:active {
+    /*ボタンを押したとき*/
+    // -webkit-transform: translateY(4px);
+    // transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
   }
 }
 

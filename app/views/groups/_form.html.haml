@@ -19,6 +19,9 @@
       / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
       = f.collection_check_boxes :user_ids, User.all, :id, :name
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
+      - @group.users.each do |user|
+        .main-header__left-box__member-list
+          = image_tag user.image.url, class: 'message__user-image'
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right

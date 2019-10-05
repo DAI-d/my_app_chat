@@ -1,4 +1,4 @@
-:root {
+:root { //cssの変数定義
   --sidebar-width: 100%;
   --toggler-size: 30px;
   --toggler-line-number: 3;
@@ -36,22 +36,39 @@ html {
   display: flex;
 }
 
+// .side-var-header {
+//   align-items: center;
+//   justify-content: space-between;
+//   &__name {
+//     font-size: $side_header_font;
+//     font-weight: bold;
+//   }
+.header__lists {
+  float: right;
+  .list {
+    display: inline-block;
+  }
+  .icon {
+    color: $white;
+  }
+}
+
 .sidebar,
 .content {
   transition: all .5s ease-in-out; //対象,時間,動き方
+  outline: none;
 }
 
 .sidebar {
   width: var(--sidebar-width);
-  -webkit-transform: translateX(calc(var(--sidebar-width) * -1));
-          transform: translateX(calc(var(--sidebar-width) * -1));
-  background: linear-gradient(to bottom right, skyblue, white);
+  transform: translateY(calc(var(--sidebar-width) * -1));//XYで方向指定。開始位置*-1(左)*1(右)
+  background: linear-gradient(to bottom right, white, skyblue);
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 0;
-  height: 100vh;
+  height: 50vh;
   opacity: .1; //透明度0-1.0
   z-index: 10;
 }
@@ -100,6 +117,7 @@ html {
   left: 0;
   right: 0;
   transition: all .25s ease-out;
+  z-index: 20;
 }
 .menu-toggler__line:nth-child(1) {
   top: calc(var(--toggler-line-size) * 1 + (var(--toggler-line-size) * (1 - 2)));
@@ -111,31 +129,28 @@ html {
   top: calc(var(--toggler-line-size) * 3 + (var(--toggler-line-size) * (3 - 2)));
 }
 
-.input-toggler {
+.input-toggler { //チェックボックス
   position: absolute;
-  left: -100%;
+  left: -10%;
 }
-.input-toggler:focus ~ .menu-toggler {
-  outline: 1px dotted;
-}
-.input-toggler:checked ~ .menu-toggler .menu-toggler__line:not(:first-child):not(:last-child) {
-  opacity: 0;
-}
-.input-toggler:checked ~ .menu-toggler .menu-toggler__line:first-child,
-.input-toggler:checked ~ .menu-toggler .menu-toggler__line:last-child {
-  background-color: var(--toggler-color-hover);
-}
-.input-toggler:checked ~ .menu-toggler .menu-toggler__line:first-child {
-  -webkit-transform: translateY(calc(var(--toggler-line-size) * (var(--toggler-line-number) - 1))) rotate(45deg);
-          transform: translateY(calc(var(--toggler-line-size) * (var(--toggler-line-number) - 1))) rotate(45deg);
-}
-.input-toggler:checked ~ .menu-toggler .menu-toggler__line:last-child {
-  -webkit-transform: translateY(calc(-1 * var(--toggler-line-size) * (var(--toggler-line-number) - 1))) rotate(-45deg);
-          transform: translateY(calc(-1 * var(--toggler-line-size) * (var(--toggler-line-number) - 1))) rotate(-45deg);
-}
+// .input-toggler:focus ~ .menu-toggler {
+//   outline: 1px dotted;
+// }
+// .input-toggler:checked ~ .menu-toggler .menu-toggler__line:not(:first-child):not(:last-child) {
+//   opacity: 0;
+// }
+// .input-toggler:checked ~ .menu-toggler .menu-toggler__line:first-child,
+// .input-toggler:checked ~ .menu-toggler .menu-toggler__line:last-child {
+//   background-color: var(--toggler-color-hover);
+// }
+// .input-toggler:checked ~ .menu-toggler .menu-toggler__line:first-child {
+//   transform: translateY(calc(var(--toggler-line-size) * (var(--toggler-line-number) - 1))) rotate(45deg);
+// }
+// .input-toggler:checked ~ .menu-toggler .menu-toggler__line:last-child {
+//   transform: translateY(calc(-1 * var(--toggler-line-size) * (var(--toggler-line-number) - 1))) rotate(-45deg);
+// }
 .input-toggler:checked ~ .sidebar {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateY(0);
   opacity: .98;
 }
 
